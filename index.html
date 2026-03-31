@@ -16,6 +16,7 @@
       --muted: #8888aa;
       --border: #e2deff;
       --success: #22c55e;
+      --danger: #ef4444;
       --radius: 14px;
       --shadow: 0 4px 24px rgba(124,92,252,0.10);
     }
@@ -33,32 +34,21 @@
     header {
       background: linear-gradient(135deg, var(--primary) 0%, #a78bfa 100%);
       color: white;
-      padding: 28px 24px 24px;
+      padding: 24px 20px 20px;
       text-align: center;
     }
-    header .logo { font-size: 32px; margin-bottom: 6px; }
-    header h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.5px; }
-    header p { opacity: .85; font-size: .95rem; margin-top: 6px; }
-    .badge-row {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 8px; margin-top: 14px;
-    }
-    .badge {
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(255,255,255,.3);
-      border-radius: 20px;
-      padding: 4px 12px;
-      font-size: .78rem;
-    }
+    header .logo { font-size: 28px; margin-bottom: 4px; }
+    header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p { opacity: .85; font-size: .88rem; margin-top: 4px; }
 
     /* ─── Layout ─── */
     .container {
-      max-width: 1100px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 24px 16px 60px;
+      padding: 20px 16px 50px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 16px;
     }
     @media (max-width: 768px) {
       .container { grid-template-columns: 1fr; }
@@ -70,34 +60,34 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       border: 1px solid var(--border);
-      padding: 24px;
+      padding: 20px;
     }
     .card-title {
-      font-size: 1rem;
+      font-size: .95rem;
       font-weight: 700;
       color: var(--primary);
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     /* ─── Form ─── */
-    .form-row { margin-bottom: 16px; }
+    .form-row { margin-bottom: 14px; }
     label {
       display: block;
-      font-size: .85rem;
+      font-size: .82rem;
       font-weight: 600;
       color: var(--text);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
     label span { color: var(--accent); }
     input, select, textarea {
       width: 100%;
-      padding: 10px 14px;
+      padding: 9px 12px;
       border: 1.5px solid var(--border);
-      border-radius: 10px;
-      font-size: .93rem;
+      border-radius: 9px;
+      font-size: .9rem;
       font-family: inherit;
       color: var(--text);
       background: #fff;
@@ -108,24 +98,17 @@
       border-color: var(--primary);
       box-shadow: 0 0 0 3px rgba(124,92,252,.12);
     }
-    textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
-
-    .row-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    @media (max-width: 480px) { .row-2 { grid-template-columns: 1fr; } }
+    textarea { resize: vertical; min-height: 140px; line-height: 1.6; font-size: .92rem; }
 
     /* ─── Scenario chips ─── */
     .chip-group {
-      display: flex; flex-wrap: wrap; gap: 8px;
+      display: flex; flex-wrap: wrap; gap: 7px;
     }
     .chip {
-      padding: 6px 14px;
-      border-radius: 20px;
+      padding: 5px 12px;
+      border-radius: 18px;
       border: 1.5px solid var(--border);
-      font-size: .82rem;
+      font-size: .78rem;
       cursor: pointer;
       background: #fafafa;
       transition: all .18s;
@@ -134,44 +117,112 @@
     .chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
     .chip.active { background: var(--primary); color: white; border-color: var(--primary); }
 
+    /* ─── Template section ─── */
+    .template-section {
+      background: #fafbff;
+      border: 1.5px dashed var(--border);
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .template-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 10px;
+    }
+    .template-header span {
+      font-size: .8rem; font-weight: 700; color: var(--primary);
+    }
+    .template-list {
+      display: flex; flex-direction: column; gap: 6px;
+      max-height: 160px; overflow-y: auto;
+    }
+    .template-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 10px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      font-size: .82rem;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .template-item:hover {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+    .template-item-name {
+      flex: 1; margin-right: 8px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .template-item-delete {
+      color: var(--danger);
+      cursor: pointer;
+      padding: 2px 6px;
+      font-size: .75rem;
+      opacity: .6;
+    }
+    .template-item-delete:hover { opacity: 1; }
+
+    .template-input-row {
+      display: flex; gap: 8px;
+      margin-top: 10px;
+    }
+    .template-input-row input {
+      flex: 1;
+      padding: 7px 10px;
+      font-size: .82rem;
+    }
+    .btn-small {
+      padding: 7px 12px;
+      border: none;
+      border-radius: 7px;
+      background: var(--primary);
+      color: white;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .btn-small:hover { opacity: .9; }
+
     /* ─── Generate button ─── */
     .btn-generate {
       width: 100%;
-      padding: 14px;
+      padding: 13px;
       border: none;
-      border-radius: 12px;
+      border-radius: 11px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       color: white;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
-      margin-top: 8px;
+      margin-top: 6px;
       transition: opacity .2s, transform .15s;
-      letter-spacing: .3px;
+      letter-spacing: .2px;
     }
     .btn-generate:hover { opacity: .92; transform: translateY(-1px); }
     .btn-generate:active { transform: translateY(0); }
     .btn-generate:disabled { opacity: .5; cursor: not-allowed; }
 
     /* ─── Output panel ─── */
-    .output-panel { display: flex; flex-direction: column; gap: 16px; }
+    .output-panel { display: flex; flex-direction: column; gap: 12px; }
 
     .subject-box {
       background: var(--primary-light);
       border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 16px;
+      border-radius: 9px;
+      padding: 10px 13px;
     }
     .subject-label {
-      font-size: .75rem;
+      font-size: .72rem;
       font-weight: 700;
       color: var(--primary);
       text-transform: uppercase;
       letter-spacing: .5px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .subject-text {
-      font-size: .98rem;
+      font-size: .93rem;
       font-weight: 600;
       color: var(--text);
       word-break: break-word;
@@ -180,13 +231,13 @@
     .email-body {
       background: #fafbff;
       border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: 18px;
-      font-size: .92rem;
-      line-height: 1.75;
+      border-radius: 9px;
+      padding: 16px;
+      font-size: .9rem;
+      line-height: 1.7;
       white-space: pre-wrap;
       word-break: break-word;
-      min-height: 220px;
+      min-height: 200px;
       color: var(--text);
       flex: 1;
     }
@@ -194,29 +245,29 @@
     .placeholder-hint {
       background: #fff8e7;
       border: 1px solid #ffd97a;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: .82rem;
+      border-radius: 7px;
+      padding: 8px 12px;
+      font-size: .78rem;
       color: #a06000;
       display: none;
     }
 
     /* ─── Action buttons ─── */
     .action-row {
-      display: flex; gap: 10px; flex-wrap: wrap;
+      display: flex; gap: 8px; flex-wrap: wrap;
     }
     .btn-action {
       flex: 1;
-      min-width: 120px;
-      padding: 10px 16px;
-      border-radius: 10px;
+      min-width: 100px;
+      padding: 9px 14px;
+      border-radius: 9px;
       border: 1.5px solid var(--border);
       background: white;
-      font-size: .88rem;
+      font-size: .84rem;
       font-weight: 600;
       cursor: pointer;
       transition: all .18s;
-      display: flex; align-items: center; justify-content: center; gap: 6px;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
     }
     .btn-action:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
     .btn-action.copied { background: var(--success); color: white; border-color: var(--success); }
@@ -227,23 +278,23 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 320px;
+      min-height: 280px;
       color: var(--muted);
-      gap: 12px;
+      gap: 10px;
     }
-    .empty-state .icon { font-size: 48px; }
-    .empty-state p { font-size: .9rem; text-align: center; line-height: 1.6; }
+    .empty-state .icon { font-size: 40px; }
+    .empty-state p { font-size: .85rem; text-align: center; line-height: 1.6; }
 
     /* ─── Language tag ─── */
     .meta-row {
-      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+      display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
     }
     .meta-tag {
       background: var(--primary-light);
       color: var(--primary);
-      border-radius: 6px;
-      padding: 3px 10px;
-      font-size: .78rem;
+      border-radius: 5px;
+      padding: 2px 8px;
+      font-size: .74rem;
       font-weight: 600;
     }
 
@@ -252,13 +303,13 @@
       display: none;
       align-items: center;
       justify-content: center;
-      min-height: 200px;
+      min-height: 180px;
       flex-direction: column;
-      gap: 16px;
+      gap: 14px;
       color: var(--primary);
     }
     .spinner {
-      width: 40px; height: 40px;
+      width: 36px; height: 36px;
       border: 3px solid var(--primary-light);
       border-top-color: var(--primary);
       border-radius: 50%;
@@ -266,22 +317,21 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ─── Tip block ─── */
+    /* ─── Tip ─── */
     .tip {
       background: linear-gradient(135deg,#f0ebff,#fce4f0);
-      border-radius: 10px;
-      padding: 12px 16px;
-      font-size: .83rem;
+      border-radius: 9px;
+      padding: 10px 13px;
+      font-size: .78rem;
       color: #5a3de0;
-      line-height: 1.6;
+      line-height: 1.5;
     }
-    .tip strong { display: block; margin-bottom: 4px; }
 
     /* ─── Footer ─── */
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: .8rem;
+      padding: 18px;
+      font-size: .76rem;
       color: var(--muted);
     }
   </style>
@@ -291,111 +341,77 @@
 <header>
   <div class="logo">✉️</div>
   <h1>KOL 邮件生成器</h1>
-  <p>自动识别语言 · 一键套用合作模板 · AI 生成专业邮件</p>
-  <div class="badge-row">
-    <span class="badge">🇨🇳 中文</span>
-    <span class="badge">🇺🇸 English</span>
-    <span class="badge">🇯🇵 日本語</span>
-    <span class="badge">🇫🇷 Français</span>
-    <span class="badge">🇪🇸 Español</span>
-    <span class="badge">🇰🇷 한국어</span>
-  </div>
+  <p>一句话描述需求，AI 生成专业邮件</p>
 </header>
 
 <div class="container">
 
   <!-- ─── Left: Form ─── -->
   <div class="card">
-    <div class="card-title">⚙️ 填写邮件信息</div>
+    <div class="card-title">✍️ 填写信息</div>
 
     <div class="form-row">
-      <label>合作场景 <span>*</span></label>
+      <label>品牌名称 <span>*</span></label>
+      <input type="text" id="brandName" placeholder="例：可可美妆 / GlowCo" />
+    </div>
+
+    <div class="form-row">
+      <label>一句话描述需求</label>
+      <textarea id="prompt" placeholder="例：发给小红书博主@美妆日记本，邀请她合作一条护肤品测评视频，报酬2000元，4月中旬发布"></textarea>
+    </div>
+
+    <div class="form-row">
+      <label>合作场景（可选）</label>
       <div class="chip-group" id="scenarioChips">
-        <div class="chip active" data-val="outreach">📨 合作邀约</div>
-        <div class="chip" data-val="gifting">📦 样品寄送</div>
-        <div class="chip" data-val="review">✅ 内容审核</div>
-        <div class="chip" data-val="thanks">🙏 合作致谢</div>
-        <div class="chip" data-val="renewal">🔄 续约合作</div>
+        <div class="chip active" data-val="outreach">📨 邀约</div>
+        <div class="chip" data-val="gifting">📦 样品</div>
+        <div class="chip" data-val="review">✅ 审核</div>
+        <div class="chip" data-val="thanks">🙏 致谢</div>
+        <div class="chip" data-val="renewal">🔄 续约</div>
       </div>
     </div>
 
-    <div class="form-row">
-      <label>邮件语言 <span>*</span></label>
-      <select id="language">
-        <option value="auto">🌐 自动识别（根据填写内容判断）</option>
-        <option value="zh">🇨🇳 中文</option>
-        <option value="en">🇺🇸 English</option>
-        <option value="ja">🇯🇵 日本語</option>
-        <option value="fr">🇫🇷 Français</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="ko">🇰🇷 한국어</option>
-      </select>
-    </div>
-
-    <div class="row-2">
-      <div class="form-row">
-        <label>品牌名称 <span>*</span></label>
-        <input type="text" id="brandName" placeholder="例：可可美妆 / GlowCo" />
+    <!-- ─── Template Management ─── -->
+    <div class="template-section">
+      <div class="template-header">
+        <span>💾 保存的模板</span>
+        <span style="font-size:.72rem; color:var(--muted)">点击加载 | 点击 × 删除</span>
       </div>
-      <div class="form-row">
-        <label>发件人姓名</label>
-        <input type="text" id="senderName" placeholder="例：Lily / 王丽" />
+      <div class="template-list" id="templateList">
+        <!-- Templates will be rendered here -->
       </div>
-    </div>
-
-    <div class="row-2">
-      <div class="form-row">
-        <label>KOL 姓名 / 昵称</label>
-        <input type="text" id="kolName" placeholder="例：@美妆日记本 / Emma" />
+      <div class="template-input-row">
+        <input type="text" id="newTemplateName" placeholder="模板名称..." />
+        <button class="btn-small" onclick="saveTemplate()">保存当前</button>
       </div>
-      <div class="form-row">
-        <label>内容平台</label>
-        <input type="text" id="platform" placeholder="例：小红书 / Instagram" />
-      </div>
-    </div>
-
-    <div class="form-row">
-      <label>内容方向 / Niche</label>
-      <input type="text" id="niche" placeholder="例：护肤测评、穿搭、美食 vlog" />
-    </div>
-
-    <div class="form-row">
-      <label>合作细节（形式 / 时间 / 报酬等）</label>
-      <textarea id="details" placeholder="例：发布一条护肤品测评视频，预期时间4月中旬，报酬2000元+产品置换"></textarea>
-    </div>
-
-    <div class="form-row">
-      <label>补充说明（可选）</label>
-      <textarea id="extra" style="min-height:60px" placeholder="其他想特别强调的内容，或对邮件语气的要求"></textarea>
     </div>
 
     <button class="btn-generate" id="generateBtn" onclick="generateEmail()">
       ✨ 生成邮件
     </button>
 
-    <div class="tip" style="margin-top:16px">
-      <strong>💡 小提示</strong>
-      填写的信息越详细，生成的邮件质量越高。空白项会用【待填写】占位，方便你之后补充。
+    <div class="tip" style="margin-top:14px">
+      💡 直接描述需求，AI 会自动提取信息并生成邮件。保存常用模板可一键复用。
     </div>
   </div>
 
   <!-- ─── Right: Output ─── -->
-  <div class="card output-panel" id="outputPanel">
+  <div class="card output-panel">
 
     <!-- Empty state -->
     <div class="empty-state" id="emptyState">
       <div class="icon">✉️</div>
-      <p>填写左侧表单，<br>点击「生成邮件」按钮<br>即可一键生成专业邮件</p>
+      <p>填写品牌和需求，<br>点击「生成邮件」即可</p>
     </div>
 
     <!-- Loader -->
     <div class="loader" id="loader">
       <div class="spinner"></div>
-      <span>正在生成邮件…</span>
+      <span>AI 正在生成邮件…</span>
     </div>
 
     <!-- Result -->
-    <div id="result" style="display:none; display:flex; flex-direction:column; gap:14px; display:none">
+    <div id="result" style="display:none; display:flex; flex-direction:column; gap:12px; display:none">
 
       <div class="card-title">📧 邮件草稿</div>
 
@@ -420,7 +436,7 @@
           🔗 复制主题
         </button>
         <button class="btn-action" onclick="downloadEmail()">
-          💾 下载 .txt
+          💾 下载
         </button>
         <button class="btn-action" onclick="resetForm()">
           🔄 重新生成
@@ -433,10 +449,95 @@
 </div>
 
 <footer>
-  KOL 邮件生成器 · 支持 6 种语言 · 5 大合作场景
+  KOL 邮件生成器 · 一句话生成专业邮件
 </footer>
 
 <script>
+// ── Template Management (localStorage) ──
+const TEMPLATES_KEY = 'kol_email_templates';
+
+function getTemplates() {
+  try {
+    return JSON.parse(localStorage.getItem(TEMPLATES_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function saveTemplates(templates) {
+  localStorage.setItem(TEMPLATES_KEY, JSON.stringify(templates));
+}
+
+function renderTemplates() {
+  const list = document.getElementById('templateList');
+  const templates = getTemplates();
+  if (templates.length === 0) {
+    list.innerHTML = '<div style="color:var(--muted);font-size:.78rem;text-align:center;padding:10px;">暂无保存的模板</div>';
+    return;
+  }
+  list.innerHTML = templates.map((t, i) => `
+    <div class="template-item" onclick="loadTemplate(${i})">
+      <span class="template-item-name">${escapeHtml(t.name)}</span>
+      <span class="template-item-delete" onclick="event.stopPropagation(); deleteTemplate(${i})">×</span>
+    </div>
+  `).join('');
+}
+
+function saveTemplate() {
+  const brand = document.getElementById('brandName').value.trim();
+  const prompt = document.getElementById('prompt').value.trim();
+  const nameInput = document.getElementById('newTemplateName');
+  const name = nameInput.value.trim();
+
+  if (!brand && !prompt) {
+    alert('请先填写品牌或需求信息');
+    return;
+  }
+
+  const templates = getTemplates();
+  const newName = name || `模板 ${templates.length + 1}`;
+
+  templates.unshift({
+    name: newName,
+    brand,
+    prompt,
+    scenario: getSelectedScenario()
+  });
+
+  saveTemplates(templates);
+  renderTemplates();
+  nameInput.value = '';
+}
+
+function loadTemplate(index) {
+  const templates = getTemplates();
+  const t = templates[index];
+  document.getElementById('brandName').value = t.brand || '';
+  document.getElementById('prompt').value = t.prompt || '';
+  if (t.scenario) {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    const chip = document.querySelector(`.chip[data-val="${t.scenario}"]`);
+    if (chip) chip.classList.add('active');
+  }
+}
+
+function deleteTemplate(index) {
+  if (!confirm('确定要删除这个模板吗？')) return;
+  const templates = getTemplates();
+  templates.splice(index, 1);
+  saveTemplates(templates);
+  renderTemplates();
+}
+
+function escapeHtml(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+// ── Initialize templates ──
+renderTemplates();
+
 // ── Scenario chip selection ──
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
@@ -450,24 +551,85 @@ function getSelectedScenario() {
   return active ? active.dataset.val : 'outreach';
 }
 
+// ── Parse prompt with AI-like extraction ──
+function parsePrompt(prompt) {
+  // Extract KOL name (handles @, 名字, name, to, 给等)
+  let kol = null;
+  const kolPatterns = [
+    /@([\w\u4e00-\u9fff]+)/,
+    /给\s*([A-Z][a-z]+|[^\s，。！]+[博主|博主])/i,
+    /发给\s*([A-Z][a-z]+|[^\s，。！]+)/i,
+    /to\s+([A-Z][a-z]+)/i,
+    /KOL[:：]\s*([^\s，。！]+)/i
+  ];
+  for (const p of kolPatterns) {
+    const m = prompt.match(p);
+    if (m) { kol = m[1]; break; }
+  }
+
+  // Extract platform
+  let platform = null;
+  const platPatterns = [
+    /小红书|xiaohongshu/i,
+    /微博|weibo/i,
+    /微信|wechat/i,
+    /抖音|douyin/i,
+    /Instagram|instagram|IG/i,
+    /TikTok|tiktok/i,
+    /YouTube|youtube/i,
+    /B站|Bilibili|bilibili/i
+  ];
+  for (const [k, p] of platPatterns) {
+    if (p.test(prompt)) {
+      if (k.includes('小红书')) platform = '小红书';
+      else if (k.includes('微博')) platform = '微博';
+      else if (k.includes('微信')) platform = '微信';
+      else if (k.includes('抖音')) platform = '抖音';
+      else if (k.toLowerCase().includes('instagram')) platform = 'Instagram';
+      else if (k.toLowerCase().includes('tiktok')) platform = 'TikTok';
+      else if (k.toLowerCase().includes('youtube')) platform = 'YouTube';
+      else if (k.includes('B站') || k.toLowerCase().includes('bilibili')) platform = 'B站';
+      break;
+    }
+  }
+
+  // Extract niche/topic
+  let niche = null;
+  const nichePatterns = [
+    /关于\s*([^\s，。！]+)\s*内容/,
+    /做\s*([^\s，。！]+)\s*测评/,
+    /做\s*([^\s，。！]+)\s*vlog/i,
+    /([^\s，。！]+)博主/
+  ];
+  for (const p of nichePatterns) {
+    const m = prompt.match(p);
+    if (m) { niche = m[1]; break; }
+  }
+
+  // Extract details (everything else)
+  let details = prompt;
+  if (kol) details = details.replace(new RegExp(`@${kol}|给\\s*${kol}`, 'gi'), '');
+  if (platform) details = details.replace(new RegExp(platform, 'gi'), '');
+  details = details.replace(/邀请|合作|发给|发给|邮件|写一封/gi, '').trim();
+  details = details || '【待填写：合作详情】';
+
+  return { kol, platform, niche, details };
+}
+
 // ── Language detection ──
-function detectLanguage() {
-  const langSelect = document.getElementById('language').value;
-  if (langSelect !== 'auto') return langSelect;
+function detectLanguage(text) {
+  if (!text) return 'en';
 
-  const allText = [
-    document.getElementById('brandName').value,
-    document.getElementById('kolName').value,
-    document.getElementById('details').value,
-    document.getElementById('extra').value
-  ].join(' ');
-
-  // Simple heuristic: check for CJK characters
-  if (/[\u3040-\u30ff\u31f0-\u31ff\uff65-\uff9f]/.test(allText)) return 'ja';
-  if (/[\uac00-\ud7af]/.test(allText)) return 'ko';
-  if (/[\u4e00-\u9fff]/.test(allText)) return 'zh';
-  if (/[àáâãäåæçèéêëìíîïðñòóôõöùúûüý]/i.test(allText)) return 'fr';
-  if (/[áéíóúüñ¿¡]/i.test(allText)) return 'es';
+  // Check for Japanese
+  if (/[\u3040-\u30ff\u31f0-\u31ff\uff65-\uff9f]/.test(text)) return 'ja';
+  // Check for Korean
+  if (/[\uac00-\ud7af]/.test(text)) return 'ko';
+  // Check for Chinese
+  if (/[\u4e00-\u9fff]/.test(text)) return 'zh';
+  // Check for French
+  if (/[àáâãäåæçèéêëìíîïðñòóôõöùúûüý]/i.test(text)) return 'fr';
+  // Check for Spanish
+  if (/[áéíóúüñ¿¡]/i.test(text)) return 'es';
   return 'en';
 }
 
@@ -489,27 +651,23 @@ const SCENARIO_LABELS = {
 };
 
 // ── Template engine ──
-function buildEmail(lang, scenario, data) {
-  const { brand, sender, kol, platform, niche, details, extra } = data;
+function buildEmail(lang, scenario, brand, parsed) {
+  const { kol, platform, niche, details } = parsed;
 
-  const fill = (val, fallback) => val && val.trim() ? val.trim() : fallback;
+  const B = brand || '【品牌名称】';
+  const S = '【您的姓名】';
+  const K = kol;
+  const P = platform || '【平台】';
+  const N = niche || '【内容方向】';
+  const D = details || '【待填写：合作详情】';
 
-  const B = fill(brand, '【品牌名称】');
-  const S = fill(sender, '【您的姓名】');
-  const K = fill(kol, null);
-  const P = fill(platform, '【平台】');
-  const N = fill(niche, '【内容方向】');
-  const D = fill(details, '【待填写：合作形式、时间、报酬等详情】');
-  const E = extra && extra.trim() ? '\n\n' + extra.trim() : '';
-
-  // Greetings
   const greetings = {
     zh: K ? `${K} 您好，` : '您好，',
-    en: K ? `Hi ${K.replace(/^@/, '')},` : 'Hi there,',
+    en: K ? `Hi ${kol.replace(/^@/, '')},` : 'Hi there,',
     ja: K ? `${K} 様` : 'ご担当者様',
-    fr: K ? `Bonjour ${K.replace(/^@/, '')},` : 'Bonjour,',
-    es: K ? `Hola ${K.replace(/^@/, '')},` : 'Hola,',
-    ko: K ? `안녕하세요, ${K.replace(/^@/, '')}님` : '안녕하세요,'
+    fr: K ? `Bonjour ${kol.replace(/^@/, '')},` : 'Bonjour,',
+    es: K ? `Hola ${kol.replace(/^@/, '')},` : 'Hola,',
+    ko: K ? `안녕하세요, ${kol.replace(/^@/, '')}님` : '안녕하세요,'
   };
 
   const closings = {
@@ -528,133 +686,133 @@ function buildEmail(lang, scenario, data) {
     zh: {
       outreach: {
         subject: `邀请与「${B}」开展合作——专属KOL机会`,
-        body: `${g}\n\n我是来自「${B}」的${S}。长期关注您在${P}上关于${N}的内容，非常欣赏您独特的创作风格和与粉丝之间真实的互动。\n\n目前我们正在为${D}寻找优质的创作者合作伙伴，相信您的受众与我们的品牌理念高度契合，期待能有机会与您合作。${E}\n\n如果您有兴趣，非常期待进一步沟通！请随时回复此邮件，期待您的来信。\n\n${c}`
+        body: `${g}\n\n我是来自「${B}」的${S}。长期关注您在${P}上关于${N}的内容，非常欣赏您独特的创作风格和与粉丝之间真实的互动。\n\n目前我们正在为${D}寻找优质的创作者合作伙伴，相信您的受众与我们的品牌理念高度契合，期待能有机会与您合作。\n\n如果您有兴趣，非常期待进一步沟通！请随时回复此邮件，期待您的来信。\n\n${c}`
       },
       gifting: {
         subject: `「${B}」× ${K || '您'} —— 样品已寄出通知`,
-        body: `${g}\n\n感谢您确认参与我们的合作！您的专属样品已安排寄出。\n\n${D}\n\n收到样品后如有任何问题，或需要更多产品信息，请随时联系我。期待看到您的精彩内容！${E}\n\n${c}`
+        body: `${g}\n\n感谢您确认参与我们的合作！您的专属样品已安排寄出。\n\n${D}\n\n收到样品后如有任何问题，或需要更多产品信息，请随时联系我。期待看到您的精彩内容！\n\n${c}`
       },
       review: {
         subject: `内容确认——「${B}」合作项目`,
-        body: `${g}\n\n感谢您提交的内容草稿！整体非常精彩，完全符合我们的品牌调性。\n\n${D}\n\n请确认终稿将按计划发布。如有任何疑问，随时告知我。再次感谢您的用心创作！${E}\n\n${c}`
+        body: `${g}\n\n感谢您提交的内容草稿！整体非常精彩，完全符合我们的品牌调性。\n\n${D}\n\n请确认终稿将按计划发布。如有任何疑问，随时告知我。再次感谢您的用心创作！\n\n${c}`
       },
       thanks: {
         subject: `感谢您与「${B}」的精彩合作！`,
-        body: `${g}\n\n衷心感谢您在此次合作中的出色表现！您的内容收获了热烈的反响，我们对合作结果非常满意。\n\n${D}\n\n希望未来有机会继续携手合作，期待与您的下一次相遇！${E}\n\n${c}`
+        body: `${g}\n\n衷心感谢您在此次合作中的出色表现！您的内容收获了热烈的反响，我们对合作结果非常满意。\n\n${D}\n\n希望未来有机会继续携手合作，期待与您的下一次相遇！\n\n${c}`
       },
       renewal: {
         subject: `期待继续合作——「${B}」长期伙伴邀约`,
-        body: `${g}\n\n上次合作效果非常出色，我们对您的内容质量和专业度印象深刻！\n\n因此，我们诚挚邀请您成为「${B}」的长期合作伙伴，共同探索更多合作可能性。\n\n${D}\n\n如您有兴趣，期待安排一次通话详细沟通。请告知您方便的时间。${E}\n\n${c}`
+        body: `${g}\n\n上次合作效果非常出色，我们对您的内容质量和专业度印象深刻！\n\n因此，我们诚挚邀请您成为「${B}」的长期合作伙伴，共同探索更多合作可能性。\n\n${D}\n\n如您有兴趣，期待安排一次通话详细沟通。请告知您方便的时间。\n\n${c}`
       }
     },
     en: {
       outreach: {
         subject: `Collaboration Opportunity with ${B} – Exclusive Invite`,
-        body: `${g}\n\nMy name is ${S} from ${B}. I've been following your content on ${P} around ${N}, and I truly admire your authentic voice and the way you engage with your audience.\n\nWe're currently looking for creative partners for ${D}, and we believe your audience would be a wonderful fit for our brand.${E}\n\nI'd love to chat more about how we can work together — feel free to reply to this email anytime!\n\n${c}`
+        body: `${g}\n\nMy name is ${S} from ${B}. I've been following your content on ${P} around ${N}, and I truly admire your authentic voice and the way you engage with your audience.\n\nWe're currently looking for creative partners for ${D}, and we believe your audience would be a wonderful fit for our brand.\n\nI'd love to chat more about how we can work together — feel free to reply to this email anytime!\n\n${c}`
       },
       gifting: {
         subject: `Your ${B} Gift Package Is on Its Way!`,
-        body: `${g}\n\nThank you for confirming the collaboration — we're so excited to work with you!\n\n${D}\n\nPlease don't hesitate to reach out once your package arrives if you have any questions. We can't wait to see your content!${E}\n\n${c}`
+        body: `${g}\n\nThank you for confirming the collaboration — we're so excited to work with you!\n\n${D}\n\nPlease don't hesitate to reach out once your package arrives if you have any questions. We can't wait to see your content!\n\n${c}`
       },
       review: {
         subject: `Content Review for ${B} Campaign`,
-        body: `${g}\n\nThank you so much for sharing your draft — it looks fantastic and really aligns with our brand vision!\n\n${D}\n\nPlease confirm the content will go live as planned. Feel free to reach out with any questions or if you'd like to make any adjustments.${E}\n\n${c}`
+        body: `${g}\n\nThank you so much for sharing your draft — it looks fantastic and really aligns with our brand vision!\n\n${D}\n\nPlease confirm the content will go live as planned. Feel free to reach out with any questions or if you'd like to make any adjustments.\n\n${c}`
       },
       thanks: {
         subject: `Thank You for an Amazing Collaboration with ${B}!`,
-        body: `${g}\n\nWe just wanted to take a moment to say a huge thank you for your wonderful work on our campaign! Your content truly resonated with our audience and exceeded our expectations.\n\n${D}\n\nWe'd love to stay in touch and hope to collaborate again in the future!${E}\n\n${c}`
+        body: `${g}\n\nWe just wanted to take a moment to say a huge thank you for your wonderful work on our campaign! Your content truly resonated with our audience and exceeded our expectations.\n\n${D}\n\nWe'd love to stay in touch and hope to collaborate again in the future!\n\n${c}`
       },
       renewal: {
         subject: `Let's Make This Long-Term – ${B} Partnership Proposal`,
-        body: `${g}\n\nOur last collaboration was such a success, and we've been thoroughly impressed by your content quality and professionalism.\n\nWe'd love to explore a long-term partnership with you and discuss some exciting exclusive opportunities.\n\n${D}\n\nWould you be open to a quick call to talk through the details? Just let us know your availability.${E}\n\n${c}`
+        body: `${g}\n\nOur last collaboration was such a success, and we've been thoroughly impressed by your content quality and professionalism.\n\nWe'd love to explore a long-term partnership with you and discuss some exciting exclusive opportunities.\n\n${D}\n\nWould you be open to a quick call to talk through the details? Just let us know your availability.\n\n${c}`
       }
     },
     ja: {
       outreach: {
         subject: `【${B}】コラボレーションのご提案`,
-        body: `${g}\n\nはじめまして、${B}の${S}と申します。\n${P}での${N}に関するご投稿を拝見しており、そのユニークなスタイルとフォロワーへの真摯な発信に大変感銘を受けております。\n\nこのたび、${D}に際し、ぜひご一緒させていただければと思いご連絡いたしました。${E}\n\nご興味をお持ちいただけましたら、詳細についてぜひお話しできればと存じます。\n\n${c}`
+        body: `${g}\n\nはじめまして、${B}の${S}と申します。\n${P}での${N}に関するご投稿を拝見しており、そのユニークなスタイルとフォロワーへの真摯な発信に大変感銘を受けております。\n\nこのたび、${D}に際し、ぜひご一緒させていただければと思いご連絡いたしました。\n\nご興味をお持ちいただけましたら、詳細についてぜひお話しできればと存じます。\n\n${c}`
       },
       gifting: {
         subject: `【${B}】サンプル発送のご連絡`,
-        body: `${g}\n\nこの度はコラボレーションをご快諾いただき、誠にありがとうございます。\nご依頼のサンプルを本日発送いたしました。\n\n${D}\n\nご不明な点がございましたら、お気軽にご連絡ください。すてきなコンテンツを楽しみにしております。${E}\n\n${c}`
+        body: `${g}\n\nこの度はコラボレーションをご快諾いただき、誠にありがとうございます。\nご依頼のサンプルを本日発送いたしました。\n\n${D}\n\nご不明な点がございましたら、お気軽にご連絡ください。すてきなコンテンツを楽しみにしております。\n\n${c}`
       },
       review: {
         subject: `【${B}】コンテンツのご確認について`,
-        body: `${g}\n\nコンテンツのご共有をいただき、誠にありがとうございます。大変すばらしい仕上がりで、弊社のブランドイメージにもぴったりです。\n\n${D}\n\nご不明点がございましたら、どうぞお気軽にご連絡ください。引き続きよろしくお願いいたします。${E}\n\n${c}`
+        body: `${g}\n\nコンテンツのご共有をいただき、誠にありがとうございます。大変すばらしい仕上がりで、弊社のブランドイメージにもぴったりです。\n\n${D}\n\nご不明点がございましたら、どうぞお気軽にご連絡ください。引き続きよろしくお願いいたします。\n\n${c}`
       },
       thanks: {
         subject: `【${B}】この度のご協力、誠にありがとうございました`,
-        body: `${g}\n\nこの度は弊社キャンペーンへのご協力、誠にありがとうございました。${S.replace('【您的姓名】','')}様のコンテンツは多くのフォロワーに好評をいただき、大変うれしく思っております。\n\n${D}\n\nまたご縁がございましたら、ぜひよろしくお願いいたします。${E}\n\n${c}`
+        body: `${g}\n\nこの度は弊社キャンペーンへのご協力、誠にありがとうございました。${S.replace('【您的姓名】','')}様のコンテンツは多くのフォロワーに好評をいただき、大変うれしく思っております。\n\n${D}\n\nまたご縁がございましたら、ぜひよろしくお願いいたします。\n\n${c}`
       },
       renewal: {
         subject: `【${B}】継続的なパートナーシップのご提案`,
-        body: `${g}\n\n先日のコラボレーションは大変好評をいただき、${S.replace('【您的姓名】','')}様の高いクオリティと誠実なお仕事ぶりに感銘を受けております。\n\nつきましては、ぜひ継続的なパートナーシップについてご相談させていただければと思いご連絡いたしました。\n\n${D}\n\nご興味がおありでしたら、ぜひ一度お話しできれば幸いです。${E}\n\n${c}`
+        body: `${g}\n\n先日のコラボレーションは大変好評をいただき、${S.replace('【您的姓名】','')}様の高いクオリティと誠実なお仕事ぶりに感銘を受けております。\n\nつきましては、ぜひ継続的なパートナーシップについてご相談させていただければと思いご連絡いたしました。\n\n${D}\n\nご興味がおありでしたら、ぜひ一度お話しできれば幸いです。\n\n${c}`
       }
     },
     fr: {
       outreach: {
         subject: `Opportunité de collaboration avec ${B}`,
-        body: `${g}\n\nJe m'appelle ${S} et je travaille pour ${B}. Je suis vos contenus sur ${P} depuis un moment, particulièrement vos publications sur ${N}, et j'apprécie vraiment votre authenticité.\n\nDans le cadre de ${D}, nous recherchons des créateurs avec qui collaborer, et votre profil correspond parfaitement à notre vision.${E}\n\nN'hésitez pas à me répondre pour en discuter davantage !\n\n${c}`
+        body: `${g}\n\nJe m'appelle ${S} et je travaille pour ${B}. Je suis vos contenus sur ${P} depuis un moment, particulièrement vos publications sur ${N}, et j'apprécie vraiment votre authenticité.\n\nDans le cadre de ${D}, nous recherchons des créateurs avec qui collaborer, et votre profil correspond parfaitement à notre vision.\n\nN'hésitez pas à me répondre pour en discuter davantage !\n\n${c}`
       },
       gifting: {
         subject: `Votre colis ${B} est en route !`,
-        body: `${g}\n\nMerci d'avoir confirmé notre collaboration — nous sommes ravis de travailler avec vous !\n\n${D}\n\nN'hésitez pas à nous contacter à réception du colis si vous avez des questions. Nous avons hâte de voir votre contenu !${E}\n\n${c}`
+        body: `${g}\n\nMerci d'avoir confirmé notre collaboration — nous sommes ravis de travailler avec vous !\n\n${D}\n\nN'hésitez pas à nous contacter à réception du colis si vous avez des questions. Nous avons hâte de voir votre contenu !\n\n${c}`
       },
       thanks: {
         subject: `Merci pour cette belle collaboration avec ${B} !`,
-        body: `${g}\n\nNous tenions à vous remercier chaleureusement pour votre travail lors de notre campagne. Votre contenu a vraiment touché notre communauté et a dépassé nos attentes.\n\n${D}\n\nNous espérons pouvoir retravailler ensemble à l'avenir !${E}\n\n${c}`
+        body: `${g}\n\nNous tenions à vous remercier chaleureusement pour votre travail lors de notre campagne. Votre contenu a vraiment touché notre communauté et a dépassé nos attentes.\n\n${D}\n\nNous espérons pouvoir retravailler ensemble à l'avenir !\n\n${c}`
       },
       renewal: {
         subject: `Proposition de partenariat durable – ${B}`,
-        body: `${g}\n\nNotre dernière collaboration a été un vrai succès, et nous sommes très impressionnés par la qualité de votre contenu.\n\nNous aimerions envisager un partenariat à long terme avec vous.\n\n${D}\n\nSeriez-vous disponible pour un appel afin d'en discuter ?${E}\n\n${c}`
+        body: `${g}\n\nNotre dernière collaboration a été un vrai succès, et nous sommes très impressionnés par la qualité de votre contenu.\n\nNous aimerions envisager un partenariat à long terme avec vous.\n\n${D}\n\nSeriez-vous disponible pour un appel afin d'en discuter ?\n\n${c}`
       },
       review: {
         subject: `Validation du contenu – Campagne ${B}`,
-        body: `${g}\n\nMerci beaucoup pour votre brouillon — il est fantastique et correspond parfaitement à l'image de notre marque !\n\n${D}\n\nMerci de confirmer que le contenu sera publié comme prévu. N'hésitez pas à nous contacter pour toute question.${E}\n\n${c}`
+        body: `${g}\n\nMerci beaucoup pour votre brouillon — il est fantastique et correspond parfaitement à l'image de notre marque !\n\n${D}\n\nMerci de confirmer que le contenu sera publié comme prévu. N'hésitez pas à nous contacter pour toute question.\n\n${c}`
       }
     },
     es: {
       outreach: {
         subject: `Propuesta de colaboración con ${B}`,
-        body: `${g}\n\nMe llamo ${S} y trabajo en ${B}. He estado siguiendo tu contenido en ${P} sobre ${N}, y me encanta la forma en que conectas con tu audiencia de manera tan genuina.\n\nEstamos buscando creadores para ${D}, y creemos que tu perfil encaja perfectamente con nuestra marca.${E}\n\n¡Me encantaría hablar contigo sobre esta oportunidad!\n\n${c}`
+        body: `${g}\n\nMe llamo ${S} y trabajo en ${B}. He estado siguiendo tu contenido en ${P} sobre ${N}, y me encanta la forma en que conectas con tu audiencia de manera tan genuina.\n\nEstamos buscando creadores para ${D}, y creemos que tu perfil encaja perfectamente con nuestra marca.\n\n¡Me encantaría hablar contigo sobre esta oportunidad!\n\n${c}`
       },
       gifting: {
         subject: `¡Tu paquete de ${B} está en camino!`,
-        body: `${g}\n\n¡Gracias por confirmar la colaboración! Estamos muy emocionados de trabajar contigo.\n\n${D}\n\nNo dudes en contactarnos cuando recibas el paquete si tienes alguna pregunta. ¡Esperamos ver tu contenido!${E}\n\n${c}`
+        body: `${g}\n\n¡Gracias por confirmar la colaboración! Estamos muy emocionados de trabajar contigo.\n\n${D}\n\nNo dudes en contactarnos cuando recibas el paquete si tienes alguna pregunta. ¡Esperamos ver tu contenido!\n\n${c}`
       },
       thanks: {
         subject: `¡Gracias por tu increíble colaboración con ${B}!`,
-        body: `${g}\n\nQueríamos tomarnos un momento para agradecerte enormemente tu trabajo en nuestra campaña. Tu contenido resonó de verdad con nuestra audiencia y superó nuestras expectativas.\n\n${D}\n\n¡Esperamos poder volver a colaborar contigo en el futuro!${E}\n\n${c}`
+        body: `${g}\n\nQueríamos tomarnos un momento para agradecerte enormemente tu trabajo en nuestra campaña. Tu contenido resonó de verdad con nuestra audiencia y superó nuestras expectativas.\n\n${D}\n\n¡Esperamos poder volver a colaborar contigo en el futuro!\n\n${c}`
       },
       renewal: {
         subject: `Propuesta de asociación a largo plazo – ${B}`,
-        body: `${g}\n\nNuestra última colaboración fue todo un éxito y quedamos muy impresionados con la calidad de tu contenido.\n\nNos gustaría explorar una asociación a largo plazo contigo.\n\n${D}\n\n¿Estarías dispuesto/a a tener una llamada rápida para hablar sobre los detalles?${E}\n\n${c}`
+        body: `${g}\n\nNuestra última colaboración fue todo un éxito y quedamos muy impresionados con la calidad de tu contenido.\n\nNos gustaría explorar una asociación a largo plazo contigo.\n\n${D}\n\n¿Estarías dispuesto/a a tener una llamada rápida para hablar sobre los detalles?\n\n${c}`
       },
       review: {
         subject: `Revisión de contenido – Campaña ${B}`,
-        body: `${g}\n\n¡Muchas gracias por compartir tu borrador! Se ve fantástico y realmente refleja la esencia de nuestra marca.\n\n${D}\n\n¿Puedes confirmar que el contenido se publicará según lo planificado? No dudes en escribirnos si tienes alguna pregunta.${E}\n\n${c}`
+        body: `${g}\n\n¡Muchas gracias por compartir tu borrador! Se ve fantástico y realmente refleja la esencia de nuestra marca.\n\n${D}\n\n¿Puedes confirmar que el contenido se publicará según lo planificado? No dudes en escribirnos si tienes alguna pregunta.\n\n${c}`
       }
     },
     ko: {
       outreach: {
         subject: `${B} 협업 제안드립니다`,
-        body: `${g}\n\n저는 ${B}의 ${S}입니다. ${P}에서 ${N} 관련 콘텐츠를 즐겨 보고 있으며, 진솔하고 개성 넘치는 콘텐츠에 깊은 인상을 받았습니다.\n\n${D}와 관련하여 크리에이터 파트너를 찾고 있으며, 귀하의 채널이 저희 브랜드와 잘 맞는다고 생각됩니다.${E}\n\n관심이 있으시다면 편하게 연락 주세요!\n\n${c}`
+        body: `${g}\n\n저는 ${B}의 ${S}입니다. ${P}에서 ${N} 관련 콘텐츠를 즐겨 보고 있으며, 진솔하고 개성 넘치는 콘텐츠에 깊은 인상을 받았습니다.\n\n${D}와 관련하여 크리에이터 파트너를 찾고 있으며, 귀하의 채널이 저희 브랜드와 잘 맞는다고 생각됩니다.\n\n관심이 있으시다면 편하게 연락 주세요!\n\n${c}`
       },
       gifting: {
         subject: `${B} 제품 발송 안내`,
-        body: `${g}\n\n협업 확인해 주셔서 감사합니다! 기다려 주신 샘플을 오늘 발송했습니다.\n\n${D}\n\n제품 수령 후 궁금한 점이 있으시면 언제든 연락 주세요. 멋진 콘텐츠 기대하겠습니다!${E}\n\n${c}`
+        body: `${g}\n\n협업 확인해 주셔서 감사합니다! 기다려 주신 샘플을 오늘 발송했습니다.\n\n${D}\n\n제품 수령 후 궁금한 점이 있으시면 언제든 연락 주세요. 멋진 콘텐츠 기대하겠습니다!\n\n${c}`
       },
       thanks: {
         subject: `${B} 협업에 감사드립니다!`,
-        body: `${g}\n\n이번 캠페인에서 보여주신 멋진 활동에 진심으로 감사드립니다. 콘텐츠가 많은 분들께 좋은 반응을 얻었습니다.\n\n${D}\n\n앞으로도 좋은 인연이 이어지길 바랍니다!${E}\n\n${c}`
+        body: `${g}\n\n이번 캠페인에서 보여주신 멋진 활동에 진심으로 감사드립니다. 콘텐츠가 많은 분들께 좋은 반응을 얻었습니다.\n\n${D}\n\n앞으로도 좋은 인연이 이어지길 바랍니다!\n\n${c}`
       },
       renewal: {
         subject: `${B} 장기 파트너십 제안`,
-        body: `${g}\n\n지난번 협업이 큰 성공을 거두어, 귀하의 콘텐츠 품질과 전문성에 깊은 인상을 받았습니다.\n\n저희 ${B}와의 장기 파트너십을 제안드리고 싶습니다.\n\n${D}\n\n간단한 통화로 자세한 내용을 논의할 수 있을까요?${E}\n\n${c}`
+        body: `${g}\n\n지난번 협업이 큰 성공을 거두어, 귀하의 콘텐츠 품질과 전문성에 깊은 인상을 받았습니다.\n\n저희 ${B}와의 장기 파트너십을 제안드리고 싶습니다.\n\n${D}\n\n간단한 통화로 자세한 내용을 논의할 수 있을까요?\n\n${c}`
       },
       review: {
         subject: `${B} 콘텐츠 검토 안내`,
-        body: `${g}\n\n초안을 공유해 주셔서 감사합니다! 완성도가 높고 브랜드 이미지와도 잘 어울립니다.\n\n${D}\n\n예정대로 게시해 주실 수 있는지 확인 부탁드립니다. 궁금한 점은 언제든 연락 주세요.${E}\n\n${c}`
+        body: `${g}\n\n초안을 공유해 주셔서 감사합니다! 완성도가 높고 브랜드 이미지와도 잘 어울립니다.\n\n${D}\n\n예정대로 게시해 주실 수 있는지 확인 부탁드립니다. 궁금한 점은 언제든 연락 주세요.\n\n${c}`
       }
     }
   };
@@ -667,6 +825,8 @@ function buildEmail(lang, scenario, data) {
 // ── Main generate function ──
 function generateEmail() {
   const brandName = document.getElementById('brandName').value.trim();
+  const prompt = document.getElementById('prompt').value.trim();
+
   if (!brandName) {
     document.getElementById('brandName').focus();
     document.getElementById('brandName').style.borderColor = '#ef4444';
@@ -680,19 +840,11 @@ function generateEmail() {
   document.getElementById('loader').style.display = 'flex';
 
   setTimeout(() => {
-    const lang = detectLanguage();
+    const lang = detectLanguage(prompt);
     const scenario = getSelectedScenario();
-    const data = {
-      brand: brandName,
-      sender: document.getElementById('senderName').value,
-      kol: document.getElementById('kolName').value,
-      platform: document.getElementById('platform').value,
-      niche: document.getElementById('niche').value,
-      details: document.getElementById('details').value,
-      extra: document.getElementById('extra').value
-    };
+    const parsed = parsePrompt(prompt);
 
-    const { subject, body } = buildEmail(lang, scenario, data);
+    const { subject, body } = buildEmail(lang, scenario, brandName, parsed);
 
     // Meta tags
     const metaRow = document.getElementById('metaRow');
@@ -714,7 +866,7 @@ function generateEmail() {
 
     document.getElementById('loader').style.display = 'none';
     document.getElementById('result').style.display = 'flex';
-  }, 600);
+  }, 500);
 }
 
 // ── Copy functions ──
@@ -757,11 +909,12 @@ function resetForm() {
   document.getElementById('brandName').focus();
 }
 
-// Enter key on inputs triggers generate
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Enter') generateEmail();
-  });
+// Enter key triggers generate
+document.getElementById('prompt').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.ctrlKey) generateEmail();
+});
+document.getElementById('brandName').addEventListener('keydown', e => {
+  if (e.key === 'Enter') document.getElementById('prompt').focus();
 });
 </script>
 </body>
